@@ -1,0 +1,22 @@
+1 - Acordar com o despertador;
+2 - Levantar da cama;
+3 - Ir ao banheiro;
+4 - Escovar os dentes;
+5 - Ir para a cozinha;
+6 - Tomar café da manhã;
+7 - Tomar um banho;
+8 - Se arrumar para o trabalho;
+9 - Pegar a chave de casa;
+10 - Pegar a chave do carro;
+11 - Se a porta estiver trancada;
+     1 - colocar a chave na fechadura;
+     2 - destrancar a porta;
+     3 - girar a maçaneta;
+     4 - abrir a porta;
+11 - Não 
+    1 - Girar a maçaneta;
+    2 - Abrir a porta;
+12 - Sair de casa;
+13 - Abrir o carro;
+14 - ligar o carro;
+15 - Ir para o trabalho;
