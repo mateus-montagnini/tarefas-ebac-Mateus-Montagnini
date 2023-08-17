@@ -22,5 +22,7 @@ public class Main {
         System.out.println(valorInteger);
         System.out.println(valorDouble);
         System.out.println(valorLong);
+
+        sc.close();
     }
 }
