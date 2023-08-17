@@ -18,5 +18,7 @@ public class Principal {
 
         System.out.println("A média do estudante é: " + media);
 
+        sc.close();
+
     }
 }
