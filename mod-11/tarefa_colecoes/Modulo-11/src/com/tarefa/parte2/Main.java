@@ -32,5 +32,6 @@ public class Main {
         System.out.println("Lista de pessoas do sexo feminino: " + listaF);
 
         sc.close();
+
     }
 }
