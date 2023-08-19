@@ -1,4 +1,4 @@
-import javax.swing.*;
+
 import java.util.*;
 
 public class Main {
@@ -30,5 +30,6 @@ public class Main {
         System.out.println("Lista de pessoas do sexo feminino: " + arrayF);
 
         sc.close();
+
     }
 }
