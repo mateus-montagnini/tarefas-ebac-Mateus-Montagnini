@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/EBAC_Java.iml" filepath="$PROJECT_DIR$/.idea/EBAC_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-05/mod-05.iml" filepath="$PROJECT_DIR$/mod-05/mod-05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-07/mod-07.iml" filepath="$PROJECT_DIR$/mod-07/mod-07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-08/mod-08.iml" filepath="$PROJECT_DIR$/mod-08/mod-08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-09/mod-09.iml" filepath="$PROJECT_DIR$/mod-09/mod-09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-10/mod-10.iml" filepath="$PROJECT_DIR$/mod-10/mod-10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-11/mod-11.iml" filepath="$PROJECT_DIR$/mod-11/mod-11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-12/mod-12.iml" filepath="$PROJECT_DIR$/mod-12/mod-12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mod-13/mod-13.iml" filepath="$PROJECT_DIR$/mod-13/mod-13.iml" />
+    </modules>
+  </component>
+</project>
