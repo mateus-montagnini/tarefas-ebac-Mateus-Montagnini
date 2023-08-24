@@ -24,6 +24,6 @@ public abstract class Car {
     }
 
     public void placaDoCarro() {
-        System.out.println("A placa do carro: " + placa);
+        System.out.println("O carro tem a placa: " + placa);
     }
 }
