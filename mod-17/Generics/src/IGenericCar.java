@@ -1,3 +1,5 @@
+import java.util.List;
+
 public interface IGenericCar<T> {
-    T criaListaDeCarros();
+    List<T> criaListaDeCarros();
 }
