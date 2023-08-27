@@ -3,50 +3,44 @@ import java.util.List;
 import java.util.Collection;
 import java.util.Iterator;
 
-public abstract class Car<T> implements IGenericCar {
-    private String modelo;
-    private String placa;
-    private String cor;
-    private String fabrica;
+public abstract class Car<T> implements IGenericCar<T> {
+    private T modelo;
+    private T placa;
+    private T cor;
+    private T fabrica;
     protected List<T> lista = new ArrayList<T>();
 
-//    public Car(String modelo, String placa, String cor) {
-//        this.modelo = modelo;
-//        this.placa = placa;
-//        this.cor = cor;
-//    }
-
-    public String getModelo() {
+    public T getModelo() {
         return modelo;
     }
 
 
-    public String getPlaca() {
+    public T getPlaca() {
         return placa;
     }
 
 
-    public String getCor() {
+    public T getCor() {
         return cor;
     }
 
-    public String getFabrica() {
+    public T getFabrica() {
         return fabrica;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(T modelo) {
         this.modelo = modelo;
     }
 
-    public void setPlaca(String placa) {
+    public void setPlaca(T placa) {
         this.placa = placa;
     }
 
-    public void setCor(String cor) {
+    public void setCor(T cor) {
         this.cor = cor;
     }
 
-    public void setFabrica(String fabrica) {
+    public void setFabrica(T fabrica) {
         this.fabrica = fabrica;
     }
 }
