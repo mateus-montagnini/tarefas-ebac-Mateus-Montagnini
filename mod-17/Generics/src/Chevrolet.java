@@ -1,7 +1,9 @@
-public class Chevrolet extends Car {
+import java.util.List;
+
+public class Chevrolet<T> extends Car {
 
     @Override
-    public Object criaListaDeCarros() {
+    public T criaListaDeCarros() {
         setFabrica("Chevrolet");
         lista.add(getFabrica());
         setModelo("Corsa");
@@ -10,6 +12,6 @@ public class Chevrolet extends Car {
         lista.add(getPlaca());
         setCor("Branco");
         lista.add(getCor());
-        return lista;
+        return (T) lista;
     }
 }
