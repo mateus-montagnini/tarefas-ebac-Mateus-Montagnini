@@ -1,7 +1,7 @@
-public class Volkswagen extends Car {
+public class Volkswagen<T> extends Car {
 
     @Override
-    public Object criaListaDeCarros() {
+    public T criaListaDeCarros() {
         setFabrica("Volkswagen");
         lista.add(getFabrica());
         setModelo("Polo");
@@ -10,6 +10,6 @@ public class Volkswagen extends Car {
         lista.add(getPlaca());
         setCor("Prata");
         lista.add(getCor());
-        return lista;
+        return (T) lista;
     }
 }
