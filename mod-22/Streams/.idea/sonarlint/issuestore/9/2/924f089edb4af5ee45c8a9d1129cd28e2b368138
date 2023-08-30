@@ -1,0 +1,10 @@
+
+7
+java:S1220""Move this file to a named package.8Ñê®·¤1
+L	java:S106"+Replace this use of System.out by a logger.(¤Ï·‘ÿÿÿÿÿ8¡ë®·¤1
+G	java:S106"+Replace this use of System.out by a logger.(Ïÿ¸ò8¥ë®·¤1
+L	java:S106"+Replace this use of System.out by a logger.(ç„¬úøÿÿÿÿ8©ë®·¤1
+o
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8­ë®·¤1
+L	java:S106"+Replace this use of System.out by a logger.(Þ°À‹ÿÿÿÿÿ8û”´·¤1
+G	java:S106"+Replace this use of System.out by a logger.(­¬‡û8…äÆ·¤1
