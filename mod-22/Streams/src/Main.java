@@ -27,5 +27,7 @@ public class Main {
         System.out.println("Lista completa: " + lista);
         System.out.println("Lista de mulheres: " + listaStream);
 
+        sc.close();
+
     }
 }
