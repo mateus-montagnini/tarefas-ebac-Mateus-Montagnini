@@ -4,9 +4,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
-public class TestListaTest {
+public class TestLista {
 
     List<String> listaCompleta = new ArrayList<>();
     List<String> listaFeminina = new ArrayList<>();
