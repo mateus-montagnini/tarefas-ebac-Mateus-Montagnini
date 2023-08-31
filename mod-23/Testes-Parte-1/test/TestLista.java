@@ -4,6 +4,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
+
 public class TestLista {
 
     List<String> listaCompleta = new ArrayList<>();
@@ -16,6 +18,7 @@ public class TestLista {
         listaCompleta = pessoa.getLista();
         listaFeminina = pessoa.atualizarLista(pessoa.getLista());
 
-        Assert.assertNotEquals(listaCompleta, listaFeminina);
+        Assert.assertThat(listaFeminina,
+                hasItems("Juliana-F", "Beatriz-F", "Sofia-F"));
+        }
     }
-}
