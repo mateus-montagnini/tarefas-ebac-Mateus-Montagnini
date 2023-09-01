@@ -1,7 +1,8 @@
 package br.com.mrocha;
 
-import main.Cliente;
+import main.domain.Cliente;
 import main.dao.IClienteDAO;
+import main.exception.TipoChaveNaoEncontradaException;
 import main.mocks.ClienteDaoMock;
 import main.services.ClienteService;
 import main.services.IClienteService;
@@ -29,21 +30,19 @@ public class ClientServiceTest {
         cliente.setEstado("SP");
         cliente.setNumero(10);
         cliente.setTel(11999322143L);
-
-        iClienteService.salvar(cliente);
     }
 
     @Test
     public void pesquisarCliente() {
 
-        Cliente clienteConsultado = iClienteService.buscarPorCpf(cliente.getCpf());
+        Cliente clienteConsultado = iClienteService.buscarPorCPF(cliente.getCpf());
 
         Assert.assertNotNull(clienteConsultado);
     }
 
     @Test
-    public void salvarCliente() {
-        Boolean retorno = iClienteService.salvar(cliente);
+    public void salvarCliente() throws TipoChaveNaoEncontradaException {
+        Boolean retorno = iClienteService.cadastrar(cliente);
         Assert.assertTrue(retorno);
     }
 
@@ -53,7 +52,7 @@ public class ClientServiceTest {
     }
 
     @Test
-    public void alterarCliente() {
+    public void alterarCliente() throws TipoChaveNaoEncontradaException {
         cliente.setNome("Mateus");
         iClienteService.alterar(cliente);
 

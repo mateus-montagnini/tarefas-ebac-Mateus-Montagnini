@@ -1,34 +1,17 @@
 package main.services;
 
-import main.Cliente;
+import main.domain.Cliente;
 import main.dao.IClienteDAO;
+import main.services.generics.GenericService;
 
-public class ClienteService implements IClienteService {
+public class ClienteService extends GenericService<Cliente, Long> implements IClienteService {
 
-    private IClienteDAO iClienteDAO;
-
-    public ClienteService(IClienteDAO iClienteDAO) {
-        this.iClienteDAO = iClienteDAO;
+    public ClienteService(IClienteDAO clienteDAO) {
+        super(clienteDAO);
     }
 
     @Override
-    public Boolean salvar(Cliente cliente) {
-        iClienteDAO.salvar(cliente);
-        return true;
-    }
-
-    @Override
-    public Cliente buscarPorCpf(Long cpf) {
-        return iClienteDAO.buscarPorCpf(cpf);
-    }
-
-    @Override
-    public void excluir(Long cpf) {
-        iClienteDAO.excluir(cpf);
-    }
-
-    @Override
-    public void alterar(Cliente cliente) {
-        iClienteDAO.alterar(cliente);
+    public Cliente buscarPorCPF(Long cpf) {
+        return this.dao.consultar(cpf);
     }
 }
