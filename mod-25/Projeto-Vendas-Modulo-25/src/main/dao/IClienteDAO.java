@@ -1,11 +1,8 @@
 package main.dao;
 
-import main.Cliente;
+import main.dao.generics.IGenericDAO;
+import main.domain.Cliente;
 
-public interface IClienteDAO {
-    Boolean salvar(Cliente cliente);
+public interface IClienteDAO extends IGenericDAO<Cliente, Long> {
 
-    Cliente buscarPorCpf(Long cpf);
-    void excluir(Long cpf);
-    void alterar(Cliente cliente);
 }
