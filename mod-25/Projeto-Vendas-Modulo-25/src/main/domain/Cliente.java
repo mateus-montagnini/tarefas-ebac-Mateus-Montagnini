@@ -1,7 +1,10 @@
-package main;
+package main.domain;
 
-public class Cliente {
+import main.anotacao.TipoChave;
+
+public class Cliente implements Persistente{
     private String nome;
+    @TipoChave("getCpf")
     private Long cpf;
     private Long tel;
     private String end;
