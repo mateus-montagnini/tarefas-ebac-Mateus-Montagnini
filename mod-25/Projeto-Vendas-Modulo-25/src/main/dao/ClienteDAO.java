@@ -1,26 +1,31 @@
 package main.dao;
 
-import main.Cliente;
+import main.dao.generics.GenericDAO;
+import main.domain.Cliente;
 
-public class ClienteDAO implements IClienteDAO {
+public class ClienteDAO extends GenericDAO<Cliente, Long> implements IClienteDAO {
 
-    @Override
-    public Boolean salvar(Cliente cliente) {
-        return true;
+    public ClienteDAO() {
+        super();
     }
 
     @Override
-    public Cliente buscarPorCpf(Long cpf) {
-        return null;
+    public Class<Cliente> getTipoClasse() {
+        return Cliente.class;
     }
 
     @Override
-    public void excluir(Long cpf) {
+    public void atualizarDados(Cliente entity, Cliente entityCadastrado) {
+        entityCadastrado.setCidade(entity.getCidade());
+        entityCadastrado.setCpf(entity.getCpf());
+        entityCadastrado.setEnd(entity.getEnd());
+        entityCadastrado.setEstado(entity.getEstado());
+        entityCadastrado.setNome(entity.getNome());
+        entityCadastrado.setNumero(entity.getNumero());
+        entityCadastrado.setTel(entity.getTel());
 
     }
 
-    @Override
-    public void alterar(Cliente cliente) {
 
-    }
+
 }

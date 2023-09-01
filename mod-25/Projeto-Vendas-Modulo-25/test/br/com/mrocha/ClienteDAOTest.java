@@ -1,9 +1,15 @@
 package br.com.mrocha;
 
-import main.Cliente;
-import main.dao.ClienteDAO;
+import main.domain.Cliente;
 import main.dao.IClienteDAO;
+import main.exception.TipoChaveNaoEncontradaException;
 import main.mocks.ClienteDaoMock;
+
+
+import static org.junit.Assert.assertTrue;
+
+import java.util.Collection;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +23,7 @@ public class ClienteDAOTest {
     }
 
     @Before
-    public void init() {
+    public void init() throws TipoChaveNaoEncontradaException {
         cliente = new Cliente();
         cliente.setCpf(1234567890L);
         cliente.setNome("Mateus");
@@ -27,26 +33,34 @@ public class ClienteDAOTest {
         cliente.setNumero(10);
         cliente.setTel(11999322143L);
 
-        iClienteDAO.salvar(cliente);
+        iClienteDAO.cadastrar(cliente);
     }
 
     @Test
     public void pesquisarCliente() {
 
-        Cliente clienteConsultado = iClienteDAO.buscarPorCpf(cliente.getCpf());
+        Cliente clienteConsultado = iClienteDAO.consultar(cliente.getCpf());
 
         Assert.assertNotNull(clienteConsultado);
 
     }
 
     @Test
-    public void salvarCliente() {
-        Boolean retorno = iClienteDAO.salvar(cliente);
-        Assert.assertTrue(retorno);
+    public void salvarCliente() throws TipoChaveNaoEncontradaException {
+        Boolean retorno = iClienteDAO.cadastrar(cliente);
+        assertTrue(retorno);
     }
 
     @Test
     public void excluirCliente() {
         iClienteDAO.excluir(cliente.getCpf());
+    }
+
+    @Test
+    public void alterarCliente() throws TipoChaveNaoEncontradaException {
+        cliente.setNome("Mateus");
+        iClienteDAO.alterar(cliente);
+
+        Assert.assertEquals("Mateus", cliente.getNome());
     }
 }
