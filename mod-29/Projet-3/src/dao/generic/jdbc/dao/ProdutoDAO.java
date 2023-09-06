@@ -30,8 +30,22 @@ public class ProdutoDAO implements IProdutoDAO {
     }
 
     @Override
-    public Integer atualizar(Produto cliente) throws Exception {
-        return null;
+    public Integer atualizar(Produto produto) throws Exception {
+        Connection connection = null;
+        PreparedStatement stm = null;
+        try {
+            connection = ConnectionFactory.getConnection();
+            String sql = "UPDATE tb_cliente SET nome = ?, preco = ? WHERE id = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, produto.getNome());
+            stm.setDouble(2, produto.getPreco());
+            stm.setLong(3, produto.getId());
+            return stm.executeUpdate();
+        } catch(Exception e) {
+            throw e;
+        } finally {
+            CloseConnection(connection, stm, null);
+        }
     }
 
     @Override
