@@ -9,7 +9,7 @@ public interface IProdutoDAO {
 
     Integer cadastrar(Produto cliente) throws Exception;
     Integer atualizar(Produto cliente) throws Exception;
-    Cliente consultar(String codigo) throws Exception;
+    Produto consultar(String codigo) throws Exception;
     Integer excluir(Produto clienteBD) throws Exception;
     List<Produto> buscarTodos() throws Exception;
 }
