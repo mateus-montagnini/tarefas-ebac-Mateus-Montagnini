@@ -27,8 +27,23 @@ public class ProdutoTeste {
         assertEquals(produto.getCodigo(), produtoDB.getCodigo());
         assertEquals(produto.getNome(), produtoDB.getNome());
         assertEquals(produto.getPreco(), produtoDB.getPreco(), produtoDB.getPreco());
+    }
 
-//        Integer countDel = produtoDAO.excluir(produtoDB);
-//        assertEquals(1, (int) countDel);
+    @Test
+    public void consultarTeste() throws Exception {
+        produtoDAO = new ProdutoDAO();
+
+        Produto produto = new Produto();
+        produto.setCodigo("15");
+        produto.setNome("Camiseta");
+        produto.setPreco(10.50);
+        Integer countCad = produtoDAO.cadastrar(produto);
+        assertTrue(countCad == 1);
+
+        Produto produtoDB = produtoDAO.consultar("15");
+        assertNotNull(produtoDB);
+        assertEquals(produto.getCodigo(), produtoDB.getCodigo());
+        assertEquals(produto.getNome(), produto.getNome());
+        assertEquals(produto.getPreco(), produtoDB.getPreco(), produtoDB.getPreco());
     }
 }
