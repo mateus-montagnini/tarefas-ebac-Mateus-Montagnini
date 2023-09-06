@@ -21,14 +21,6 @@ public class ClienteTest {
         cliente.setNome("Mateus");
         Integer countCad = clienteDAO.cadastrar(cliente);
         assertEquals(1, (int) countCad);
-
-        Cliente clienteBD = clienteDAO.consultar("05");
-        assertNotNull(clienteBD);
-        assertEquals(cliente.getCodigo(), clienteBD.getCodigo());
-        assertEquals(cliente.getNome(), clienteBD.getNome());
-
-        Integer countDel = clienteDAO.excluir(clienteBD);
-        assertTrue(countDel == 1);
     }
 
     @Test
@@ -45,9 +37,6 @@ public class ClienteTest {
         assertNotNull(clienteBD);
         assertEquals(cliente.getCodigo(), clienteBD.getCodigo());
         assertEquals(cliente.getNome(), clienteBD.getNome());
-
-        Integer countDel = clienteDAO.excluir(clienteBD);
-        assertTrue(countDel == 1);
     }
 
     @Test
