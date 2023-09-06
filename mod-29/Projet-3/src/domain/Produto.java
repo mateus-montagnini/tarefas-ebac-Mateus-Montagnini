@@ -5,6 +5,7 @@ public class Produto {
     private Long id;
     private String nome;
     private Double preco;
+    private String codigo;
 
     public Long getId() {
         return id;
@@ -28,5 +29,13 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }
