@@ -49,8 +49,31 @@ public class ProdutoDAO implements IProdutoDAO {
     }
 
     @Override
-    public Cliente consultar(String codigo) throws Exception {
-        return null;
+    public Cliente consultar(String nome) throws Exception {
+        Connection connection = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        Cliente cliente = null;
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            String sql = "SELECT * FROM tb_produto WHERE nome = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, nome);
+            rs = stm.executeQuery();
+
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setId(rs.getLong("id"));
+                cliente.setCodigo(rs.getString("preco"));
+                cliente.setNome(rs.getString("nome"));
+            }
+        } catch(Exception e) {
+            throw e;
+        } finally {
+            CloseConnection(connection, stm, rs);
+        }
+        return cliente;
     }
 
     @Override
