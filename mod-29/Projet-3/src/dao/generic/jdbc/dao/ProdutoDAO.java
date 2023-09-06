@@ -37,7 +37,7 @@ public class ProdutoDAO implements IProdutoDAO {
         PreparedStatement stm = null;
         try {
             connection = ConnectionFactory.getConnection();
-            String sql = "UPDATE tb_cliente SET nome = ?, codigo = ?, preco = ? WHERE id = ?";
+            String sql = "UPDATE tb_produto SET nome = ?, codigo = ?, preco = ? WHERE id = ?";
             stm = connection.prepareStatement(sql);
             stm.setString(1, produto.getNome());
             stm.setString(2, produto.getCodigo());
