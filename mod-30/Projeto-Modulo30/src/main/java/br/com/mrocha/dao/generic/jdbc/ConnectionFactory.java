@@ -1,16 +1,9 @@
-/**
- * 
- */
-package br.com.rpires.dao.generic.jdbc;
+package main.java.br.com.mrocha.dao.generic.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * @author rodrigo.pires
- *
- */
 public class ConnectionFactory {
 	
 	private static Connection connection;
@@ -34,7 +27,7 @@ public class ConnectionFactory {
 	private static Connection initConnection() {
         try {
             return DriverManager.getConnection(
-            		"jdbc:postgresql://localhost:15432/vendas_online_2", "postgres", "admin");
+            		"jdbc:postgresql://localhost:5432/projeto_modulo30", "postgres", "admin");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
