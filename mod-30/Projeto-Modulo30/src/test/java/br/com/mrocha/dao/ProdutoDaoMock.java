@@ -1,35 +1,24 @@
-/**
- * 
- */
-package br.com.rpires.dao;
+package test.java.br.com.mrocha.dao;
+
+import main.java.br.com.mrocha.dao.IProdutoDAO;
+import main.java.br.com.mrocha.domain.Produto;
+import main.java.br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
 
 import java.util.Collection;
 
-import br.com.rpires.domain.Produto;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-
-/**
- * @author rodrigo.pires
- *
- */
 public class ProdutoDaoMock implements IProdutoDAO {
 
 	@Override
 	public Boolean cadastrar(Produto entity) throws TipoChaveNaoEncontradaException {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public void excluir(String valor) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void alterar(Produto entity) throws TipoChaveNaoEncontradaException {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -41,7 +30,6 @@ public class ProdutoDaoMock implements IProdutoDAO {
 
 	@Override
 	public Collection<Produto> buscarTodos() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
