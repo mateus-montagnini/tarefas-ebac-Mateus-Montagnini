@@ -1,24 +1,17 @@
-/**
- * 
- */
-package br.com.rpires.domain;
+package main.java.br.com.mrocha.domain;
 
 import java.math.BigDecimal;
 
-import anotacao.ColunaTabela;
-import anotacao.Tabela;
+import main.java.anotacao.ColunaTabela;
+import main.java.anotacao.Tabela;
 
-/**
- * @author rodrigo.pires
- *
- */
-@Tabela("TB_PRODUTO_QUANTIDADE")
+
+@Tabela("tb_produto_quantidade")
 public class ProdutoQuantidade {
 	
 	@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Long id;
 
-	//@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Produto produto;
 	
 	@ColunaTabela(dbName = "quantidade", setJavaName = "setQuantidade")
