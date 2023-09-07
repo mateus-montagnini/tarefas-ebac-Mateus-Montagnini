@@ -1,23 +1,15 @@
-/**
- * 
- */
-package br.com.rpires.services.generic;
+package main.java.br.com.mrocha.services.generic;
+
+import main.java.br.com.mrocha.dao.Persistente;
+import main.java.br.com.mrocha.dao.generic.IGenericDAO;
+import main.java.br.com.mrocha.exceptions.DAOException;
+import main.java.br.com.mrocha.exceptions.MaisDeUmRegistroException;
+import main.java.br.com.mrocha.exceptions.TableException;
+import main.java.br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
 
 import java.io.Serializable;
 import java.util.Collection;
-
-import br.com.rpires.dao.Persistente;
-import br.com.rpires.dao.generic.IGenericDAO;
-import br.com.rpires.exceptions.DAOException;
-import br.com.rpires.exceptions.MaisDeUmRegistroException;
-import br.com.rpires.exceptions.TableException;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-
-/**
- * @author rodrigo.pires
- *
- */
-public abstract class GenericService<T extends Persistente, E extends Serializable> 
+public abstract class GenericService<T extends Persistente, E extends Serializable>
 	implements IGenericService<T, E> {
 	
 	protected IGenericDAO<T,E> dao;
