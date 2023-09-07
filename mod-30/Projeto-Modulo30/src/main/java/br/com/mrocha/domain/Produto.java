@@ -1,20 +1,13 @@
-/**
- * 
- */
-package br.com.rpires.domain;
+package main.java.br.com.mrocha.domain;
+
+import main.java.anotacao.ColunaTabela;
+import main.java.anotacao.Tabela;
+import main.java.anotacao.TipoChave;
+import main.java.br.com.mrocha.dao.Persistente;
 
 import java.math.BigDecimal;
 
-import anotacao.ColunaTabela;
-import anotacao.Tabela;
-import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
-
-/**
- * @author rodrigo.pires
- *
- */
-@Tabela("TB_PRODUTO")
+@Tabela("tb_produto")
 public class Produto implements Persistente {
 	
 	@ColunaTabela(dbName = "id", setJavaName = "setId")
@@ -32,6 +25,9 @@ public class Produto implements Persistente {
 	
 	@ColunaTabela(dbName = "valor", setJavaName = "setValor")
 	private BigDecimal valor;
+
+	@ColunaTabela(dbName = "cor", setJavaName = "setCor")
+	private String cor;
 
 	public String getCodigo() {
 		return codigo;
@@ -72,5 +68,12 @@ public class Produto implements Persistente {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
 }
