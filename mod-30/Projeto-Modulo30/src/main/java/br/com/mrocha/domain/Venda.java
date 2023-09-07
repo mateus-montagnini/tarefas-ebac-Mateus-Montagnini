@@ -1,7 +1,4 @@
-/**
- * 
- */
-package br.com.rpires.domain;
+package main.java.br.com.mrocha.domain;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -9,16 +6,12 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import anotacao.ColunaTabela;
-import anotacao.Tabela;
-import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
+import main.java.anotacao.ColunaTabela;
+import main.java.anotacao.Tabela;
+import main.java.anotacao.TipoChave;
+import main.java.br.com.mrocha.dao.Persistente;
 
-/**
- * @author rodrigo.pires
- *
- */
-@Tabela("TB_VENDA")
+@Tabela("tb_venda")
 public class Venda implements Persistente {
 	
 	public enum Status {
@@ -44,7 +37,6 @@ public class Venda implements Persistente {
 	@ColunaTabela(dbName = "id_cliente_fk", setJavaName = "setIdClienteFk")
 	private Cliente cliente;
 	
-	//@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Set<ProdutoQuantidade> produtos;
 	
 	@ColunaTabela(dbName = "valor_total", setJavaName = "setValorTotal")
@@ -88,7 +80,6 @@ public class Venda implements Persistente {
 			ProdutoQuantidade produtpQtd = op.get();
 			produtpQtd.adicionar(quantidade);
 		} else {
-			// Criar fabrica para criar ProdutoQuantidade
 			ProdutoQuantidade prod = new ProdutoQuantidade();
 			prod.setProduto(produto);
 			prod.adicionar(quantidade);
@@ -128,14 +119,12 @@ public class Venda implements Persistente {
 	}
 	
 	public Integer getQuantidadeTotalProdutos() {
-		// Soma a quantidade getQuantidade() de todos os objetos ProdutoQuantidade
 		int result = produtos.stream()
 		  .reduce(0, (partialCountResult, prod) -> partialCountResult + prod.getQuantidade(), Integer::sum);
 		return result;
 	}
 	
 	public void recalcularValorTotalVenda() {
-		//validarStatus();
 		BigDecimal valorTotal = BigDecimal.ZERO;
 		for (ProdutoQuantidade prod : this.produtos) {
 			valorTotal = valorTotal.add(prod.getValorTotal());
