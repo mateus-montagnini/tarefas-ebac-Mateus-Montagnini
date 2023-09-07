@@ -1,7 +1,4 @@
-/**
- * 
- */
-package br.com.rpires.dao;
+package main.java.br.com.mrocha.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,26 +7,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+
+import main.java.br.com.mrocha.dao.factory.ProdutoQuantidadeFactory;
+import main.java.br.com.mrocha.dao.factory.VendaFactory;
+import main.java.br.com.mrocha.domain.ProdutoQuantidade;
+import main.java.br.com.mrocha.domain.Venda;
+import main.java.br.com.mrocha.dao.generic.GenericDAO;
+import main.java.br.com.mrocha.exceptions.DAOException;
+import main.java.br.com.mrocha.exceptions.MaisDeUmRegistroException;
+import main.java.br.com.mrocha.exceptions.TableException;
+import main.java.br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import br.com.rpires.dao.factory.ProdutoQuantidadeFactory;
-import br.com.rpires.dao.factory.VendaFactory;
-import br.com.rpires.dao.generic.GenericDAO;
-import br.com.rpires.domain.ProdutoQuantidade;
-import br.com.rpires.domain.Venda;
-import br.com.rpires.domain.Venda.Status;
-import br.com.rpires.exceptions.DAOException;
-import br.com.rpires.exceptions.MaisDeUmRegistroException;
-import br.com.rpires.exceptions.TableException;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-
-/**
- * @author rodrigo.pires
- *
- */
 public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 	
 
@@ -55,15 +48,15 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		Connection connection = null;
     	PreparedStatement stm = null;
     	try {
-    		String sql = "UPDATE TB_VENDA SET STATUS_VENDA = ? WHERE ID = ?";
+    		String sql = "UPDATE tb_venda SET status_venda = ? WHERE id = ?";
     		connection = getConnection();
 			stm = connection.prepareStatement(sql);
-			stm.setString(1, Status.CONCLUIDA.name());
+			stm.setString(1, Venda.Status.CONCLUIDA.name());
 			stm.setLong(2, venda.getId());
 			stm.executeUpdate();
 			
 		} catch (SQLException e) {
-			throw new DAOException("ERRO ATUALIZANDO OBJETO ", e);
+			throw new DAOException("Erro ao atualizar ", e);
 		} finally {
 			closeConnection(connection, stm, null);
 		}
@@ -74,15 +67,15 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		Connection connection = null;
     	PreparedStatement stm = null;
     	try {
-    		String sql = "UPDATE TB_VENDA SET STATUS_VENDA = ? WHERE ID = ?";
+    		String sql = "UPDATE tb_venda SET status_venda = ? WHERE id = ?";
     		connection = getConnection();
 			stm = connection.prepareStatement(sql);
-			stm.setString(1, Status.CANCELADA.name());
+			stm.setString(1, Venda.Status.CANCELADA.name());
 			stm.setLong(2, venda.getId());
 			stm.executeUpdate();
 			
 		} catch (SQLException e) {
-			throw new DAOException("ERRO ATUALIZANDO OBJETO ", e);
+			throw new DAOException("Erro ao atualizar ", e);
 		} finally {
 			closeConnection(connection, stm, null);
 		}
@@ -91,8 +84,8 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 	@Override
 	protected String getQueryInsercao() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("INSERT INTO TB_VENDA ");
-		sb.append("(ID, CODIGO, ID_CLIENTE_FK, VALOR_TOTAL, DATA_VENDA, STATUS_VENDA)");
+		sb.append("INSERT INTO tb_venda ");
+		sb.append("(id, codigo, id_cliente, valor_total, data_venda, status_venda)");
 		sb.append("VALUES (nextval('sq_venda'),?,?,?,?,?)");
 		return sb.toString();
 	}
@@ -143,7 +136,7 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		
 		//TODO Ou pode ser feito com join
 		StringBuilder sb = sqlBaseSelect();
-		sb.append("WHERE V.CODIGO = ? ");
+		sb.append("WHERE v.codigo = ? ");
 		Connection connection = null;
 		PreparedStatement stm = null;
 		ResultSet rs = null;
@@ -174,11 +167,11 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		ResultSet rsProd = null;
 		try {
 			StringBuilder sbProd = new StringBuilder();
-		    sbProd.append("SELECT PQ.ID, PQ.QUANTIDADE, PQ.VALOR_TOTAL, ");
-		    sbProd.append("P.ID AS ID_PRODUTO, P.CODIGO, P.NOME, P.DESCRICAO, P.VALOR ");
-		    sbProd.append("FROM TB_PRODUTO_QUANTIDADE PQ ");
-		    sbProd.append("INNER JOIN TB_PRODUTO P ON P.ID = PQ.ID_PRODUTO_FK ");
-		    sbProd.append("WHERE PQ.ID_VENDA_FK = ?");
+		    sbProd.append("SELECT pq.id, pq.quantidade, pq.valor_total, ");
+		    sbProd.append("p.id AS id_produto, p.codigo, p.nome, p.descricao, p.valor ");
+		    sbProd.append("FROM tb_produto_quantidade pq ");
+		    sbProd.append("INNER JOIN tb_produto p ON p.id = pq.id_produto_fk ");
+		    sbProd.append("WHERE pq.id_venda_fk = ?");
 		    stmProd = connection.prepareStatement(sbProd.toString());
 		    stmProd.setLong(1, venda.getId());
 		    rsProd = stmProd.executeQuery();
@@ -190,7 +183,7 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		    venda.setProdutos(produtos);
 		    venda.recalcularValorTotalVenda();
 		} catch (SQLException e) {
-			throw new DAOException("ERRO CONSULTANDO OBJETO ", e);
+			throw new DAOException("Erro na consulta ", e);
 		} finally {
 			closeConnection(connection, stmProd, rsProd);
 		}
@@ -214,17 +207,17 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		    }
 		    
 		} catch (SQLException e) {
-			throw new DAOException("ERRO CONSULTANDO OBJETO ", e);
+			throw new DAOException("Erro na consulta ", e);
 		} 
     	return lista;
 	}
 
 	private StringBuilder sqlBaseSelect() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT V.ID AS ID_VENDA, V.CODIGO, V.VALOR_TOTAL, V.DATA_VENDA, V.STATUS_VENDA, ");
-		sb.append("C.ID AS ID_CLIENTE, C.NOME, C.CPF, C.TEL, C.ENDERECO, C.NUMERO, C.CIDADE, C.ESTADO ");
-		sb.append("FROM TB_VENDA V ");
-		sb.append("INNER JOIN TB_CLIENTE C ON V.ID_CLIENTE_FK = C.ID ");
+		sb.append("SELECT v.id AS id_venda, v.codigo, v.valor_total, v.data_venda, v.status_venda, ");
+		sb.append("c.id AS id_cliente, c.nome, c.cpf, c.tel, c.endereco, c.numero, c.cidade, c.estado ");
+		sb.append("FROM tb_venda v ");
+		sb.append("INNER JOIN tb_cliente c ON v.id_cliente_fk = c.id ");
 		return sb;
 	}
 
@@ -256,7 +249,7 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 			}
 			
 		} catch (SQLException e) {
-			throw new DAOException("ERRO CADASTRANDO OBJETO ", e);
+			throw new DAOException("Erro no cadastro ", e);
 		} finally {
 			closeConnection(connection, stm, null);
 		}
@@ -265,8 +258,8 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 
 	private String getQueryInsercaoProdQuant() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("INSERT INTO TB_PRODUTO_QUANTIDADE ");
-		sb.append("(ID, ID_PRODUTO_FK, ID_VENDA_FK, QUANTIDADE, VALOR_TOTAL)");
+		sb.append("INSERT INTO tb_produto_quantidade ");
+		sb.append("(id, id_produto_fk, id_venda_fk, quantidade, valor_total)");
 		sb.append("VALUES (nextval('sq_produto_quantidade'),?,?,?,?)");
 		return sb.toString();
 	}
