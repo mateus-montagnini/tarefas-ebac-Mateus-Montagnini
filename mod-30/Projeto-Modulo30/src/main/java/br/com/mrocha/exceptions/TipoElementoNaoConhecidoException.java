@@ -1,12 +1,5 @@
-/**
- * 
- */
-package br.com.rpires.exceptions;
+package main.java.br.com.mrocha.exceptions;
 
-/**
- * @author rodrigo.pires
- *
- */
 public class TipoElementoNaoConhecidoException extends Exception {
 	
 

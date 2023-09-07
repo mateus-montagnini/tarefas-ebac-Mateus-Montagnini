@@ -1,8 +1,6 @@
-package br.com.rpires.exceptions;
+package main.java.br.com.mrocha.exceptions;
 
-/**
- * @author rodrigo.pires
- */
+
 public class TipoChaveNaoEncontradaException extends Exception {
 
     
