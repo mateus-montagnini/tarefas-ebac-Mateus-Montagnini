@@ -1,7 +1,4 @@
-/**
- * 
- */
-package br.com.rpires;
+package test.java.br.com.mrocha;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -10,22 +7,16 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.util.Collection;
 
+import main.java.br.com.mrocha.dao.IProdutoDAO;
+import main.java.br.com.mrocha.dao.ProdutoDAO;
+import main.java.br.com.mrocha.domain.Produto;
+import main.java.br.com.mrocha.exceptions.DAOException;
+import main.java.br.com.mrocha.exceptions.MaisDeUmRegistroException;
+import main.java.br.com.mrocha.exceptions.TableException;
+import main.java.br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
-
-import br.com.rpires.dao.IProdutoDAO;
-import br.com.rpires.dao.ProdutoDAO;
-import br.com.rpires.domain.Produto;
-import br.com.rpires.exceptions.DAOException;
-import br.com.rpires.exceptions.MaisDeUmRegistroException;
-import br.com.rpires.exceptions.TableException;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-
-/**
- * @author rodrigo.pires
- *
- */
 public class ProdutoDAOTest {
 	
 	private IProdutoDAO produtoDao;
@@ -50,8 +41,9 @@ public class ProdutoDAOTest {
 	private Produto criarProduto(String codigo) throws TipoChaveNaoEncontradaException, DAOException {
 		Produto produto = new Produto();
 		produto.setCodigo(codigo);
-		produto.setDescricao("Produto 1");
-		produto.setNome("Produto 1");
+		produto.setDescricao("Camiseta Polo");
+		produto.setCor("Preto");
+		produto.setNome("Camiseta");
 		produto.setValor(BigDecimal.TEN);
 		produtoDao.cadastrar(produto);
 		return produto;
@@ -89,11 +81,11 @@ public class ProdutoDAOTest {
 	@Test
 	public void alterarCliente() throws TipoChaveNaoEncontradaException, DAOException, MaisDeUmRegistroException, TableException {
 		Produto produto = criarProduto("A4");
-		produto.setNome("Rodrigo Pires");
+		produto.setNome("Mateus");
 		produtoDao.alterar(produto);
 		Produto produtoBD = this.produtoDao.consultar(produto.getCodigo());
 		assertNotNull(produtoBD);
-		Assert.assertEquals("Rodrigo Pires", produtoBD.getNome());
+		Assert.assertEquals("Mateus", produtoBD.getNome());
 		
 		excluir(produto.getCodigo());
 		Produto produtoBD1 = this.produtoDao.consultar(produto.getCodigo());
