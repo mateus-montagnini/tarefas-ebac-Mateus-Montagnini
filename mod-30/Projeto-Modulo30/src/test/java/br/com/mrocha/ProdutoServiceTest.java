@@ -1,26 +1,18 @@
-/**
- * 
- */
-package br.com.rpires;
+package test.java.br.com.mrocha;
 
 import java.math.BigDecimal;
 
+import main.java.br.com.mrocha.dao.IProdutoDAO;
+import main.java.br.com.mrocha.domain.Produto;
+import main.java.br.com.mrocha.exceptions.DAOException;
+import main.java.br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
+import main.java.br.com.mrocha.services.IProdutoService;
+import main.java.br.com.mrocha.services.ProdutoService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import test.java.br.com.mrocha.dao.ProdutoDaoMock;
 
-import br.com.rpires.dao.IProdutoDAO;
-import br.com.rpires.dao.ProdutoDaoMock;
-import br.com.rpires.domain.Produto;
-import br.com.rpires.exceptions.DAOException;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-import br.com.rpires.services.IProdutoService;
-import br.com.rpires.services.ProdutoService;
-
-/**
- * @author rodrigo.pires
- *
- */
 public class ProdutoServiceTest {
 
 	private IProdutoService produtoService;
@@ -36,8 +28,8 @@ public class ProdutoServiceTest {
 	public void init() {
 		produto = new Produto();
 		produto.setCodigo("A1");
-		produto.setDescricao("Produto 1");
-		produto.setNome("Produto 1");
+		produto.setDescricao("Camiseta Polo");
+		produto.setNome("Camiseta");
 		produto.setValor(BigDecimal.TEN);
 	}
 	
@@ -60,9 +52,9 @@ public class ProdutoServiceTest {
 	
 	@Test
 	public void alterarCliente() throws TipoChaveNaoEncontradaException, DAOException {
-		produto.setNome("Rodrigo Pires");
+		produto.setNome("Mateus");
 		produtoService.alterar(produto);
 		
-		Assert.assertEquals("Rodrigo Pires", produto.getNome());
+		Assert.assertEquals("Mateus", produto.getNome());
 	}
 }
