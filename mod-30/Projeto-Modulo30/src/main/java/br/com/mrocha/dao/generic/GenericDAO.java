@@ -1,4 +1,11 @@
-package br.com.rpires.dao.generic;
+package main.java.br.com.mrocha.dao.generic;
+
+import main.java.anotacao.ColunaTabela;
+import main.java.anotacao.Tabela;
+import main.java.anotacao.TipoChave;
+import main.java.br.com.mrocha.dao.Persistente;
+import main.java.br.com.mrocha.dao.generic.jdbc.ConnectionFactory;
+import main.java.br.com.mrocha.exceptions.*;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -13,23 +20,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import anotacao.ColunaTabela;
-import anotacao.Tabela;
-import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
-import br.com.rpires.dao.generic.jdbc.ConnectionFactory;
-import br.com.rpires.exceptions.DAOException;
-import br.com.rpires.exceptions.MaisDeUmRegistroException;
-import br.com.rpires.exceptions.TableException;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-import br.com.rpires.exceptions.TipoElementoNaoConhecidoException;
-
-/**
- * @author rodrigo.pires
- *
- * Classe genérica que implementa interface genérica com os métodos de CRUD
- */
 public abstract class GenericDAO<T extends Persistente, E extends Serializable> implements IGenericDAO<T,E> {
 
 
@@ -135,7 +125,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		try {
 			stm = connection.prepareStatement(getQueryAtualizacao());
 			setParametrosQueryAtualizacao(stm, entity);
-			int rowsAffected = stm.executeUpdate();
+			stm.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException("ERRO ALTERANDO OBJETO ", e);
 		} finally {
