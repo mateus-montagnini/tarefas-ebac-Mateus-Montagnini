@@ -1,28 +1,25 @@
-package br.com.rpires.dao;
+package test.java.br.com.mrocha.dao;
+
+import main.java.br.com.mrocha.dao.IClienteDAO;
+import main.java.br.com.mrocha.domain.Cliente;
+import main.java.br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
 
 import java.util.Collection;
 
-import br.com.rpires.domain.Cliente;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 public class ClienteDaoMock implements IClienteDAO {
 
 	@Override
 	public Boolean cadastrar(Cliente entity) throws TipoChaveNaoEncontradaException {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public void excluir(Long valor) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void alterar(Cliente entity) throws TipoChaveNaoEncontradaException {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -34,7 +31,6 @@ public class ClienteDaoMock implements IClienteDAO {
 
 	@Override
 	public Collection<Cliente> buscarTodos() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
