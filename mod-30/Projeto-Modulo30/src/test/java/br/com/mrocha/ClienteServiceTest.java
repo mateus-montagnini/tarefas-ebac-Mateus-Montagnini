@@ -1,24 +1,17 @@
-/**
- * 
- */
-package br.com.rpires;
+package test.java.br.com.mrocha;
 
+import main.java.br.com.mrocha.dao.IClienteDAO;
+import main.java.br.com.mrocha.domain.Cliente;
+import main.java.br.com.mrocha.exceptions.DAOException;
+import main.java.br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
+import main.java.br.com.mrocha.services.ClienteService;
+import main.java.br.com.mrocha.services.IClienteService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import test.java.br.com.mrocha.dao.ClienteDaoMock;
 
-import br.com.rpires.dao.ClienteDaoMock;
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.domain.Cliente;
-import br.com.rpires.exceptions.DAOException;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-import br.com.rpires.services.ClienteService;
-import br.com.rpires.services.IClienteService;
 
-/**
- * @author rodrigo.pires
- *
- */
 public class ClienteServiceTest {
 	
 	private IClienteService clienteService;
@@ -33,14 +26,14 @@ public class ClienteServiceTest {
 	@Before
 	public void init() {
 		cliente = new Cliente();
-		cliente.setCpf(12312312312L);
-		cliente.setNome("Rodrigo");
-		cliente.setCidade("São Paulo");
+		cliente.setCpf(987654321L);
+		cliente.setNome("Carlos");
+		cliente.setCidade("Santo Andre");
 		cliente.setEnd("End");
 		cliente.setEstado("SP");
-		cliente.setNumero(10);
-		cliente.setTel(1199999999L);
-		
+		cliente.setNumero(14);
+		cliente.setTel(11987654321L);
+		cliente.setCep(98765307L);
 	}
 	
 	@Test
@@ -63,9 +56,9 @@ public class ClienteServiceTest {
 	
 	@Test
 	public void alterarCliente() throws TipoChaveNaoEncontradaException, DAOException {
-		cliente.setNome("Rodrigo Pires");
+		cliente.setNome("Mateus");
 		clienteService.alterar(cliente);
 		
-		Assert.assertEquals("Rodrigo Pires", cliente.getNome());
+		Assert.assertEquals("Mateus", cliente.getNome());
 	}
 }
