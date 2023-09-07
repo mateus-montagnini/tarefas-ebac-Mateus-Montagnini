@@ -1,18 +1,10 @@
-/**
- * 
- */
-package br.com.rpires.domain;
+package main.java.br.com.mrocha.domain;
+import main.java.anotacao.ColunaTabela;
+import main.java.anotacao.Tabela;
+import main.java.anotacao.TipoChave;
+import main.java.br.com.mrocha.dao.Persistente;
 
-import anotacao.ColunaTabela;
-import anotacao.Tabela;
-import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
-
-/**
- * @author rodrigo.pires
- *
- */
-@Tabela("TB_CLIENTE")
+@Tabela("tb_cliente")
 public class Cliente implements Persistente {
 	
 	@ColunaTabela(dbName = "id", setJavaName = "setId")
@@ -39,6 +31,9 @@ public class Cliente implements Persistente {
     
 	@ColunaTabela(dbName = "estado", setJavaName = "setEstado")
     private String estado;
+
+	@ColunaTabela(dbName = "cep", setJavaName = "setCep")
+	private Long cep;
     
 	public String getNome() {
 		return nome;
@@ -88,9 +83,12 @@ public class Cliente implements Persistente {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
 
-	
+	public Long getCep() {
+		return cep;
+	}
 
+	public void setCep(Long cep) {
+		this.cep = cep;
+	}
 }
