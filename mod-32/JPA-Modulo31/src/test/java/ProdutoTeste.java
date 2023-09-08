@@ -54,10 +54,4 @@ public class ProdutoTeste {
         assertEquals("Produto Atualizado", produtoAtualizado.getNome());
     }
 
-//    @Test
-//    public void consultarTeste(Long id) {
-//
-//    }
-
-    // Consultar, Excluir, Atualizar
 }
