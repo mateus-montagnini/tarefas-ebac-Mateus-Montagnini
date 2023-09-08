@@ -43,16 +43,16 @@ public class ProdutoTeste {
 
     }
 
-//    @Test
-//    public void atualizarTeste() {
-//        Produto produto = criarProduto();
-//        assertNotNull(produto);
-//
-//        Produto produtoDB = produtoDAO.consultarId(produto.getId());
-//        produtoDB.setNome("Produto Atualizado");
-//        Produto produtoAtualizado = produtoDAO.atualizar(produtoDB);
-//        assertEquals("Produto Atualizado", produtoAtualizado.getNome());
-//    }
+    @Test
+    public void atualizarTeste() {
+        Produto produto = criarProduto();
+        assertNotNull(produto);
+
+        Produto produtoDB = produtoDAO.consultarId(produto.getId());
+        produtoDB.setNome("Produto Atualizado");
+        Produto produtoAtualizado = produtoDAO.atualizar(produtoDB);
+        assertEquals("Produto Atualizado", produtoAtualizado.getNome());
+    }
 
 //    @Test
 //    public void consultarTeste(Long id) {
