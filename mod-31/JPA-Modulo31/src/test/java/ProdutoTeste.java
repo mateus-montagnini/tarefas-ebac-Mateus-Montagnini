@@ -15,9 +15,9 @@ public class ProdutoTeste {
     @Test
     public void cadastrar() {
         Produto produto = new Produto();
-        produto.setNome("Produto 6");
-        produto.setDescricao("Descricao do produto 6");
-        produto.setPreco(10.50);
+        produto.setNome("Produto 1");
+        produto.setDescricao("Descricao do produto 1");
+        produto.setPreco(15.50);
         produto = produtoDAO.cadastrar(produto);
 
         assertNotNull(produto);
