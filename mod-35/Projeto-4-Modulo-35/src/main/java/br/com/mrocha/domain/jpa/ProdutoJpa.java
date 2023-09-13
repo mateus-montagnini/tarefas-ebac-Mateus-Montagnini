@@ -7,14 +7,14 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_produto")
-public class ProdutoJpa implements Persistente {
+public class ProdutoJpa extends Persistence implements Persistente {
 
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="prod_sequence")
     @SequenceGenerator(name="prod_sequence", sequenceName="sq_produto", initialValue = 1, allocationSize = 1)
     private Long id;
 
-    @Column(name = "codigo", nullable = false, length = 10, unique = true)
+    @Column(name = "codigo", nullable = false, length = 10)
     private String codigo;
 
     @Column(name = "nome", nullable = false, length = 50)
