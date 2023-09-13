@@ -8,12 +8,12 @@ import java.sql.SQLException;
 public class ProdutoQuantidadeFactory {
 
 	public static ProdutoQuantidade convert(ResultSet rs) throws SQLException {
-		Produto prod = ProdutoFactory.convert(rs);
-		ProdutoQuantidade prodQ = new ProdutoQuantidade();
-		prodQ.setProduto(prod);
-		prodQ.setId(rs.getLong("id"));
-		prodQ.setQuantidade(rs.getInt("quantidade"));
-		prodQ.setValorTotal(rs.getBigDecimal("valor_total"));
-		return prodQ;
+		Produto produto = ProdutoFactory.convert(rs);
+		ProdutoQuantidade prodQnt = new ProdutoQuantidade();
+		prodQnt.setProduto(produto);
+		prodQnt.setId(rs.getLong("id"));
+		prodQnt.setQuantidade(rs.getInt("quantidade"));
+		prodQnt.setValorTotal(rs.getBigDecimal("valor_total"));
+		return prodQnt;
 	}
 }
