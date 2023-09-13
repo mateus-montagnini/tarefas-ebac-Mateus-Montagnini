@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-	
+
 	private static Connection connection;
-	
+
 	private ConnectionFactory(Connection connection) {
-		
+
 	}
-	
+
 	public static Connection getConnection() throws SQLException {
 		if (connection == null) {
 			connection = initConnection();
@@ -23,7 +23,7 @@ public class ConnectionFactory {
 			return connection;
 		}
 	}
-	
+
 	private static Connection initConnection() {
         try {
             return DriverManager.getConnection(
@@ -32,5 +32,5 @@ public class ConnectionFactory {
             throw new RuntimeException(e);
         }
     }
-	
+
 }
