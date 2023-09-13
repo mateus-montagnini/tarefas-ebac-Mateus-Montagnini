@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_cliente")
-public class ClienteJpa implements Persistente {
+public class ClienteJpa extends Persistence implements Persistente {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cliente_sequence")
     @SequenceGenerator(name="cliente_sequence", sequenceName="sq_cliente", initialValue = 1, allocationSize = 1)
@@ -14,7 +14,7 @@ public class ClienteJpa implements Persistente {
     @Column(name = "nome", nullable = false, length = 50)
     private String nome;
 
-    @Column(name = "cpf", nullable = false, unique = true)
+    @Column(name = "cpf", nullable = false)
     private Long cpf;
 
     @Column(name = "telefone", nullable = false)
