@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tb_venda")
-public class VendaJpa implements Persistente {
+public class VendaJpa extends Persistence implements Persistente {
 
     public enum Status {
         INICIADA, CONCLUIDA, CANCELADA;
@@ -31,7 +31,7 @@ public class VendaJpa implements Persistente {
     @SequenceGenerator(name="venda_sequence", sequenceName="sq_venda", initialValue = 1, allocationSize = 1)
     private Long id;
 
-    @Column(name = "codigo", nullable = false, unique = true)
+    @Column(name = "codigo", nullable = false)
     private String codigo;
 
     @ManyToOne
