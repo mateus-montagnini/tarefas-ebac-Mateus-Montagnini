@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 public class ProdutoQuantidadeJpa implements Persistente {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="prod_qtd_seq")
-    @SequenceGenerator(name="prod_qtd_seq", sequenceName="sq_prod_qtd", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="prod_qtd_sequence")
+    @SequenceGenerator(name="prod_qtd_sequence", sequenceName="sq_prod_qtd", initialValue = 1, allocationSize = 1)
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
