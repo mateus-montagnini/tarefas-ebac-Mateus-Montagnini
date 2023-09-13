@@ -13,16 +13,16 @@ import br.com.mrocha.dao.ClienteDaoMock;
 
 
 public class ClienteServiceTest {
-	
+
 	private IClienteService clienteService;
-	
+
 	private Cliente cliente;
-	
+
 	public ClienteServiceTest() {
 		IClienteDAO dao = new ClienteDaoMock();
 		clienteService = new ClienteService(dao);
 	}
-	
+
 	@Before
 	public void init() {
 		cliente = new Cliente();
@@ -35,30 +35,30 @@ public class ClienteServiceTest {
 		cliente.setTel(11987654321L);
 		cliente.setCep(98765307L);
 	}
-	
+
 	@Test
 	public void pesquisarCliente() throws DAOException {
 		Cliente clienteConsultado = clienteService.buscarPorCPF(cliente.getCpf());
 		Assert.assertNotNull(clienteConsultado);
 	}
-	
+
 	@Test
 	public void salvarCliente() throws TipoChaveNaoEncontradaException, DAOException {
 		Boolean retorno = clienteService.cadastrar(cliente);
-		
+
 		Assert.assertTrue(retorno);
 	}
-	
+
 	@Test
 	public void excluirCliente() throws DAOException {
 		clienteService.excluir(cliente.getCpf());
 	}
-	
+
 	@Test
 	public void alterarCliente() throws TipoChaveNaoEncontradaException, DAOException {
 		cliente.setNome("Mateus");
 		clienteService.alterar(cliente);
-		
+
 		Assert.assertEquals("Mateus", cliente.getNome());
 	}
 }

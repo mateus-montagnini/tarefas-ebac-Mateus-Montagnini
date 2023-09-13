@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import br.com.mrocha.dao.generic.GenericDAO;
 import java.sql.SQLException;
 public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoDAO {
-	
+
 	public ProdutoDAO() {
 		super();
 	}

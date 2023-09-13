@@ -58,7 +58,7 @@ public class ClienteDAO extends GenericDAO<Cliente, Long> implements IClienteDAO
 	protected void setParametrosQueryExclusao(PreparedStatement stmExclusao, Long valor) throws SQLException {
 		stmExclusao.setLong(1, valor);
 	}
-	
+
 	@Override
 	protected String getQueryAtualizacao() {
 		StringBuilder sb = new StringBuilder();
