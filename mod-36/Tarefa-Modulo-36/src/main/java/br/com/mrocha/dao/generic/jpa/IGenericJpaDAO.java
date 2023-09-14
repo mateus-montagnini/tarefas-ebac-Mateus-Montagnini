@@ -1,5 +1,6 @@
 package br.com.mrocha.dao.generic.jpa;
 
+import br.com.mrocha.dao.Persistente;
 import br.com.mrocha.exceptions.DAOException;
 import br.com.mrocha.exceptions.MaisDeUmRegistroException;
 import br.com.mrocha.exceptions.TableException;
@@ -9,7 +10,7 @@ import jakarta.persistence.Persistence;
 import java.io.Serializable;
 import java.util.Collection;
 
-public interface IGenericJpaDAO <T extends Persistence, E extends Serializable> {
+public interface IGenericJpaDAO <T extends Persistente, E extends Serializable> {
 
     T cadastrar(T entity) throws TipoChaveNaoEncontradaException, DAOException;
 
