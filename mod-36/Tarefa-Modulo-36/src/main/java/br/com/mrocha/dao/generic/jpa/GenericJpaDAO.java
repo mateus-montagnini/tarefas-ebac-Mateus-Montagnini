@@ -1,5 +1,6 @@
 package br.com.mrocha.dao.generic.jpa;
 
+import br.com.mrocha.dao.Persistente;
 import br.com.mrocha.exceptions.DAOException;
 import br.com.mrocha.exceptions.MaisDeUmRegistroException;
 import br.com.mrocha.exceptions.TableException;
@@ -12,13 +13,21 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-public class GenericJpaDAO <T extends Persistence, E extends Serializable> implements IGenericJpaDAO<T, E> {
+public class GenericJpaDAO <T extends Persistente, E extends Serializable> implements IGenericJpaDAO<T, E> {
 
+    private static final String PERSISTENCE_UNIT_NAME = "postgres-modulo36";
     protected EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
     private Class<T> persistenceClass;
+    private String persistenceName;
+
     public GenericJpaDAO(Class<T> persistenceClass) {
         this.persistenceClass = persistenceClass;
+    }
+
+    public GenericJpaDAO(Class<T> persistenceClass, String persistenceName) {
+        this.persistenceClass = persistenceClass;
+        this.persistenceName = persistenceName;
     }
 
     @Override
@@ -70,7 +79,7 @@ public class GenericJpaDAO <T extends Persistence, E extends Serializable> imple
     }
 
     protected void openConnection() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("postgres-modulo36");
+        entityManagerFactory = Persistence.createEntityManagerFactory(getPersistenceUnitName());
         entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
     }
@@ -86,5 +95,14 @@ public class GenericJpaDAO <T extends Persistence, E extends Serializable> imple
         sb.append(this.persistenceClass.getSimpleName());
         sb.append(" obj");
         return sb.toString();
+    }
+
+    private String getPersistenceUnitName() {
+        if (persistenceName != null
+                && !"".equals(persistenceName)) {
+            return persistenceName;
+        } else {
+            return PERSISTENCE_UNIT_NAME;
+        }
     }
 }
