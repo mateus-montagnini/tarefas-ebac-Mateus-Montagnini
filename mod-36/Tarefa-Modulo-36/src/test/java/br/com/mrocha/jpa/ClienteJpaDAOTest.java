@@ -7,7 +7,6 @@ import br.com.mrocha.exceptions.DAOException;
 import br.com.mrocha.exceptions.MaisDeUmRegistroException;
 import br.com.mrocha.exceptions.TableException;
 import br.com.mrocha.exceptions.TipoChaveNaoEncontradaException;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 public class ClienteJpaDAOTest {
 
-    private IClienteJpaDAO clienteDao;
+    private IClienteJpaDAO<ClienteJpa> clienteDao;
     private Random random;
 
     public ClienteJpaDAOTest() {
