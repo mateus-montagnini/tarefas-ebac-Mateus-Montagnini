@@ -25,7 +25,7 @@
     </h:head>
     <h:body>
         <p:outputPanel>
-            <h3>Clientes cadastrados</h3>
+            <h3>Clientes</h3>
             <div class="ui-g">
                 <div class="ui-g-2" />
                 <div class="ui-g-8">
@@ -43,7 +43,7 @@
                             </p:column>
 
                             <p:column headerText="Telefone">
-                                <h:outputText id="telInput" value="#{customer.tel}" />
+                                <h:outputText id="telInput" value="#{customer.telefone}" />
                             </p:column>
 
                             <p:column headerText="Email">
@@ -62,7 +62,7 @@
                                                  icon="ui-icon-closethick"
                                                  action="#{clienteController.delete(customer)}"
                                                  styleClass="ui-priority-primary">
-                                    <p:confirm header="Atenção" message="Tem certeza que deseja excluir este cliente?" icon="pi pi-exclamation-triangle"/>
+                                    <p:confirm header="Atenção" message="Deseja excluir este cliente?" icon="pi pi-exclamation-triangle"/>
                                 </p:commandButton>
                             </p:column>
                         </p:dataTable>
@@ -93,7 +93,7 @@
 
                             <p:outputLabel for="tel" value="Telefone" />
                             <p:inputText id="tel"
-                                         value="#{clienteController.cliente.tel}" required="true">
+                                         value="#{clienteController.cliente.telefone}" required="true">
                             </p:inputText>
                             <p:message for="tel" />
 
@@ -141,7 +141,6 @@
                                 <f:ajax render="add" resetValues="true"/>
                             </p:commandButton>
                         </h:panelGrid>
-                        <!-- <h:messages errorStyle="color:red;margin:8px;"></h:messages> -->
                     </h:form>
                 </div>
                 <div class="ui-g-2"></div>

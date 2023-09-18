@@ -1,5 +1,12 @@
 package br.com.mrocha.exceptions;
 
-public class MaisDeUmRegistroException {
+public class MaisDeUmRegistroException extends Exception {
+
+	
+	private static final long serialVersionUID = -7509649433607067138L;
+
+	public MaisDeUmRegistroException(String message) {
+		super(message);
+    }
 
 }
