@@ -3,10 +3,10 @@ package br.com.mrocha.dao.generic;
 import java.io.Serializable;
 import java.util.Collection;
 
-import br.com.mrocha.domain.Persistente;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import br.com.mrocha.domain.Persistente;
 
 
 
