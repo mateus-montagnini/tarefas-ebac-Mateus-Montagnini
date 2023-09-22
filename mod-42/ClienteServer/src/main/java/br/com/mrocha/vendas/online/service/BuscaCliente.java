@@ -20,7 +20,7 @@ public class BuscaCliente {
         this.clienteRepository = clienteRepository;
     }
 
-    public Page<Cliente> get(Pageable pageable) {
+    public Page<Cliente> getAll(Pageable pageable) {
         return clienteRepository.findAll(pageable);
     }
 
