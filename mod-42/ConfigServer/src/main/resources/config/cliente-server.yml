@@ -8,7 +8,7 @@ spring:
       active: native
   data:
     mongodb:
-      uri: mongodb+srv://admin:admin@cluster0.qrm8sxv.mongodb.net/?retryWrites=true&w=majority
+      uri: ${URL}
       database: cliente
       auto-index-creation: true
 
