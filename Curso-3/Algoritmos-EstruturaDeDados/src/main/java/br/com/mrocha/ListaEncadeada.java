@@ -41,7 +41,7 @@ public class ListaEncadeada {
         return removedNode;
     }
 
-    public void insert(int index, Elemento elemento) {
+    public void insert(int index, Integer value) {
 
     }
 
@@ -74,7 +74,9 @@ public class ListaEncadeada {
     }
 
     public void printList() {
-        System.out.println(ListaEncadeada.class.toString());
+        for(int i = 0; i < this.size(); i++) {
+            System.out.println(this.get(i).getValue());
+        }
     }
 
     public void setFirst(Elemento first) {
@@ -87,5 +89,15 @@ public class ListaEncadeada {
 
     public void setLast(Elemento last) {
         this.last = last;
+    }
+
+    public Elemento get(Integer index) {
+        Elemento current = first;
+        for (int i = 0; i < index; i++) {
+            if (current.getNext() != null) {
+                current = current.getNext();
+            }
+        }
+        return current;
     }
 }
