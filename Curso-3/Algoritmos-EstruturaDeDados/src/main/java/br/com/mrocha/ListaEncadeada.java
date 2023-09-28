@@ -3,12 +3,14 @@ package br.com.mrocha;
 public class ListaEncadeada {
     private Elemento first;
     private Elemento last;
+    private Integer length;
+
     public Elemento getFirst() {
         return first;
     }
 
     public ListaEncadeada() {
-
+        this.length = 0;
     }
 
     public void push(Integer value) {
@@ -20,6 +22,7 @@ public class ListaEncadeada {
             last.setNext(elemento);
             last = elemento;
         }
+        length++;
     }
 
     public Elemento pop() {
@@ -31,7 +34,17 @@ public class ListaEncadeada {
     }
 
     public void remove(int index) {
-
+        Elemento previous = null;
+        Elemento current = first;
+        for(int i = 0; i < index; i++) {
+            if(current.getNext() != null) {
+                previous = current;
+                current = current.getNext();
+            }
+        }
+        previous.setNext(current.getNext());
+        current = null;
+        length--;
     }
 
     public Elemento elementAt(int index) {
@@ -45,7 +58,7 @@ public class ListaEncadeada {
     }
 
     public Integer size() {
-        return null;
+        return length;
     }
 
     public void printList() {
