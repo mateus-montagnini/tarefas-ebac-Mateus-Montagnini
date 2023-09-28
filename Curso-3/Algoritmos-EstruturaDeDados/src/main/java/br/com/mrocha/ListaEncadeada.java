@@ -41,8 +41,19 @@ public class ListaEncadeada {
         return removedNode;
     }
 
-    public void insert(int index, Integer value) {
-
+    public void insert(int index, Elemento elemento) {
+        Elemento previous = null;
+        Elemento current = first;
+        for (int i = 0; i < index; i++) {
+            if(current.getNext() != null) {
+                previous = current;
+                current = current.getNext();
+            }
+        }
+        Elemento newElemnt = elemento;
+        newElemnt.setNext(current);
+        previous.setNext(newElemnt);
+        length++;
     }
 
     public void remove(int index) {
