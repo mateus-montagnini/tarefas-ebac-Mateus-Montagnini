@@ -28,5 +28,8 @@ public class Main {
         System.out.println(lista.elementAt(1).getValue());
         System.out.println(lista.elementAt(2).getValue());
         System.out.println(lista.elementAt(3).getValue());
+
+
+        lista.printList();
     }
 }
