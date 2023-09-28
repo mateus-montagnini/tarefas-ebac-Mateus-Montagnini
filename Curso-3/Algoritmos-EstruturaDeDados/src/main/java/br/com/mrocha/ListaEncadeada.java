@@ -13,8 +13,7 @@ public class ListaEncadeada {
         this.length = 0;
     }
 
-    public void push(Integer value) {
-        Elemento elemento = new Elemento(value);
+    public void push(Elemento elemento) {
         if(first == null && last == null) {
             first = elemento;
             last = elemento;
