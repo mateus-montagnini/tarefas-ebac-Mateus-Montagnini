@@ -7,6 +7,10 @@ public class Main {
         Elemento e2 = new Elemento(20);
         Elemento e3 = new Elemento(30);
         Elemento e4 = new Elemento(40);
+        lista.push(e1);
+        lista.push(e2);
+        lista.push(e3);
+        lista.push(e4);
 
         System.out.println(lista.size());
 //        System.out.println(lista.elementAt(0).getValue());
