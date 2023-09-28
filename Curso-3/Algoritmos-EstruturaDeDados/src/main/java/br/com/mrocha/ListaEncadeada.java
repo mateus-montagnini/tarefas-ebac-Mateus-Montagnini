@@ -26,7 +26,19 @@ public class ListaEncadeada {
     }
 
     public Elemento pop() {
-        return null;
+        Elemento previous = null;
+        Elemento current = first;
+        for(int i = 0; i < this.size(); i++) {
+            if(current.getNext() != null) {
+                previous = current;
+                current = current.getNext();
+            }
+        }
+        Elemento removedNode = current;
+        previous.setNext(current.getNext());
+        current = null;
+        length--;
+        return removedNode;
     }
 
     public void insert(int index, Elemento elemento) {
