@@ -13,13 +13,20 @@ public class Main {
         System.out.println(lista.elementAt(2).getValue());
         System.out.println(lista.elementAt(3).getValue());
 
-        lista.remove(1);
+//        lista.remove(1);
+//
+//        System.out.println(lista.elementAt(0).getValue());
+//        System.out.println(lista.elementAt(1).getValue());
+//        System.out.println(lista.elementAt(2).getValue());
+//        System.out.println(lista.elementAt(3).getValue());
+//
+//        System.out.println(lista.size());
+
+        System.out.println("Removeu: " + lista.pop().getValue());
 
         System.out.println(lista.elementAt(0).getValue());
         System.out.println(lista.elementAt(1).getValue());
         System.out.println(lista.elementAt(2).getValue());
         System.out.println(lista.elementAt(3).getValue());
-
-        System.out.println(lista.size());
     }
 }
