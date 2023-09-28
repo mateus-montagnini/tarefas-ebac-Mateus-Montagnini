@@ -7,9 +7,19 @@ public class Main {
         lista.push(30);
         lista.push(40);
         lista.push(50);
+        System.out.println(lista.size());
         System.out.println(lista.elementAt(0).getValue());
         System.out.println(lista.elementAt(1).getValue());
         System.out.println(lista.elementAt(2).getValue());
         System.out.println(lista.elementAt(3).getValue());
+
+        lista.remove(1);
+
+        System.out.println(lista.elementAt(0).getValue());
+        System.out.println(lista.elementAt(1).getValue());
+        System.out.println(lista.elementAt(2).getValue());
+        System.out.println(lista.elementAt(3).getValue());
+
+        System.out.println(lista.size());
     }
 }
