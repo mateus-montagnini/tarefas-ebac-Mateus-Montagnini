@@ -5,33 +5,19 @@ import java.util.List;
 
 public class Fila {
 
-    private List<Integer> lista;
+    private ListaEncadeada lista;
+    private Integer length;
 
-    public Fila() {
-        this.lista = new ArrayList<>();
-    }
+//    public Fila() {
+//        this.lista = new ArrayList<>();
+//    }
 
-    public void enqueue() {
-
-    }
-
-    public void dequeue() {
-
-    }
-
-    public Integer rear() {
-        return null;
-    }
-
-    public Integer front() {
-        return null;
-    }
-
-    public Integer size() {
-        return null;
+    public void enqueue(Elemento value) {
+        this.lista.push(value);
     }
 
     public Boolean isEmpty() {
         return true;
     }
+
 }
