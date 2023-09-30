@@ -16,6 +16,10 @@ public class Fila {
         this.lista.push(value);
     }
 
+    public void dequeue() {
+        this.lista.remove(this.front());
+    }
+
 
 
     public Integer front() {
