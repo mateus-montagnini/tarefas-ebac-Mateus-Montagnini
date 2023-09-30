@@ -6,22 +6,24 @@ import java.util.List;
 public class Fila {
 
     private ListaEncadeada lista;
-    private Integer length;
+    private Integer length = 0;
 
-//    public Fila() {
-//        this.lista = new ArrayList<>();
-//    }
+    public Fila() {
+        this.lista = new ListaEncadeada();
+    }
 
     public void enqueue(Elemento value) {
         this.lista.push(value);
+        length++;
     }
 
     public void dequeue() {
-        this.lista.remove(this.front());
+        this.lista.pop();
+        length--;
     }
 
     public Integer rear() {
-        return null;
+        return this.lista.getLast().getValue();
     }
 
     public Integer front() {
@@ -33,7 +35,7 @@ public class Fila {
     }
 
     public Boolean isEmpty() {
-        return true;
+        return this.size() == 0 ? true : false;
     }
 
 }
