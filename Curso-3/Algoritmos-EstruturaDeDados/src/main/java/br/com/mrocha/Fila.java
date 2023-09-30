@@ -18,6 +18,10 @@ public class Fila {
 
 
 
+    public Integer front() {
+        return this.lista.getFirst().getValue();
+    }
+
     public Integer size() {
         return length;
     }
