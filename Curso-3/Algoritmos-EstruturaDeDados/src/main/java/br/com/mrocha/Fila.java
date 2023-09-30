@@ -16,6 +16,12 @@ public class Fila {
         this.lista.push(value);
     }
 
+
+
+    public Integer size() {
+        return length;
+    }
+
     public Boolean isEmpty() {
         return true;
     }
