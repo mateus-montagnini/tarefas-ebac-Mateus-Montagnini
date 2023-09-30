@@ -20,7 +20,9 @@ public class Fila {
         this.lista.remove(this.front());
     }
 
-
+    public Integer rear() {
+        return null;
+    }
 
     public Integer front() {
         return this.lista.getFirst().getValue();
