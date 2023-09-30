@@ -1,6 +1,6 @@
 package br.com.mrocha;
 
-public class Main {
+public class MainListaEncadeada {
     public static void main(String[] args) {
         ListaEncadeada lista = new ListaEncadeada();
         Elemento e1 = new Elemento(10);
