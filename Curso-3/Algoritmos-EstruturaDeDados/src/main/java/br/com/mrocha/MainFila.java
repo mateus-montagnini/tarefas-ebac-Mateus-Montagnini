@@ -15,9 +15,13 @@ public class MainFila {
         fila.enqueue(e4);
 
         System.out.println("Primeiro elemento: " + fila.front());
+        System.out.println("Ultimo elemento: " + fila.rear());
+        System.out.println("Tamanho da fila: " + fila.size());
 
         fila.dequeue();
         System.out.println("Primeiro elemento: " + fila.front());
+        System.out.println("Ultimo elemento: " + fila.rear());
+        System.out.println("Tamanho da fila: " + fila.size());
 
 //        System.out.println("Primeiro elemento: " + fila.front());
 //        System.out.println("Ultimo elemento: " + fila.rear());

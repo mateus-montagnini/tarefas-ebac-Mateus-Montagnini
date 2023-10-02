@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pilha {
-    private List<Integer> lista;
+    private ListaEncadeada lista;
+    private Integer length;
 
     public Pilha() {
-        this.lista = new ArrayList<>();
+        this.lista = new ListaEncadeada();
     }
 
     public void push() {
 
     }
 
-    public void pop() {
-
+    public Elemento pop() {
+        return null;
     }
 
     public Integer top() {
@@ -27,6 +28,6 @@ public class Pilha {
     }
 
     public Integer size() {
-        return null;
+        return length;
     }
 }
