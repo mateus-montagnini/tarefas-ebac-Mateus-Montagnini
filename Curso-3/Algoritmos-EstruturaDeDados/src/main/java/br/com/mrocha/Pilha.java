@@ -9,18 +9,21 @@ public class Pilha {
 
     public Pilha() {
         this.lista = new ListaEncadeada();
+        this.length = 0;
     }
 
     public void push(Elemento value) {
+        this.lista.pushPilha(value);
+        length++;
     }
 
-    public Integer pop() {
+    public void pop() {
+        System.out.println("Valor removido: " + this.top());
         this.lista.removeValue(this.top());
-        return this.top();
     }
 
     public Integer top() {
-        return lista.getLast().getValue();
+        return lista.getFirst().getValue();
     }
 
     public Boolean isEmpty(){
