@@ -47,5 +47,6 @@ public class MainListaEncadeada {
         lista.insert(2, elemento);
         System.out.println("\nLista final:");
         lista.printList();
+
     }
 }
