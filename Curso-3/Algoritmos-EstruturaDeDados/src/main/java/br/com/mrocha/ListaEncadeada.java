@@ -24,6 +24,17 @@ public class ListaEncadeada {
         length++;
     }
 
+    public void pushPilha(Elemento elemento) {
+        if(first == null && last == null) {
+            first = elemento;
+            last = elemento;
+        } else {
+            elemento.setNext(first);
+            first = elemento;
+        }
+        length++;
+    }
+
     public Elemento pop() {
         Elemento previous = null;
         Elemento current = first;
