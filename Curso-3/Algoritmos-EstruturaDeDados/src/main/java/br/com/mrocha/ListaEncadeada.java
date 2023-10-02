@@ -122,7 +122,7 @@ public class ListaEncadeada {
 
     public void printList() {
         for(int i = 0; i < this.size(); i++) {
-            System.out.println(this.get(i).getValue());
+            System.out.print(this.get(i).getValue() + " ");
         }
     }
 
