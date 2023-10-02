@@ -7,6 +7,7 @@ public class Fila {
 
     private ListaEncadeada lista;
     private Integer length = 0;
+    private Elemento first;
 
     public Fila() {
         this.lista = new ListaEncadeada();
@@ -18,7 +19,7 @@ public class Fila {
     }
 
     public void dequeue() {
-        this.lista.pop();
+        this.lista.removeValue(this.front());
         length--;
     }
 

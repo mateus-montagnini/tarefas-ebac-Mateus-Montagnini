@@ -69,6 +69,32 @@ public class ListaEncadeada {
         length--;
     }
 
+    public void removeValue(int value){
+        Elemento previous = null;
+        Elemento current = first;
+        for(int i=0; i < this.size(); i++){
+            if (current.getValue().equals(value)){
+                if (length == 1){
+                    first = null;
+                    last = null;
+                }else if (current == first){
+                    first = current.getNext();
+                    current.setNext(null);
+                }else if (current == last){
+                    last = previous;
+                    previous.setNext(null);
+                }else{
+                    previous.setNext(current.getNext());
+                    current = null;
+                }
+                length--;
+                break;
+            }
+            previous = current;
+            current = current.getNext();
+        }
+    }
+
     public Elemento elementAt(int index) {
         Elemento current = first;
         for(int i = 0; i < index; i++) {

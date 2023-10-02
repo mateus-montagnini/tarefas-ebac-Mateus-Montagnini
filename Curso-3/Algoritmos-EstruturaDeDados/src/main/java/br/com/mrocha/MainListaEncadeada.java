@@ -27,7 +27,7 @@ public class MainListaEncadeada {
 //
 //        System.out.println(lista.size());
 
-//        System.out.println("Removeu: " + lista.pop().getValue());
+        System.out.println("Removeu: " + lista.pop().getValue());
 //
 //        System.out.println(lista.elementAt(0).getValue());
 //        System.out.println(lista.elementAt(1).getValue());
