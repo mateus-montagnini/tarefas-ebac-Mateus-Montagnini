@@ -24,7 +24,7 @@ public class Pilha {
     }
 
     public Boolean isEmpty(){
-        return true;
+        return this.size() == 0 ? true : false;
     }
 
     public Integer size() {
