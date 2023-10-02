@@ -20,7 +20,7 @@ public class Pilha {
     }
 
     public Integer top() {
-        return null;
+        return lista.getLast().getValue();
     }
 
     public Boolean isEmpty(){
