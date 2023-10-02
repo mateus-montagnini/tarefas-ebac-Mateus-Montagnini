@@ -22,15 +22,5 @@ public class MainFila {
         System.out.println("Primeiro elemento: " + fila.front());
         System.out.println("Ultimo elemento: " + fila.rear());
         System.out.println("Tamanho da fila: " + fila.size());
-
-//        System.out.println("Primeiro elemento: " + fila.front());
-//        System.out.println("Ultimo elemento: " + fila.rear());
-//        System.out.println("Com elementos adicionados: " + fila.isEmpty());
-//        System.out.println("Tamanho da fila: " + fila.size());
-//
-//        fila.dequeue();
-//        System.out.println("Novo primeiro elemento: " + fila.front());
-//        System.out.println("Ultimo elemento: " + fila.rear());
-//        System.out.println("Tamanho da fila: " + fila.size());
     }
 }

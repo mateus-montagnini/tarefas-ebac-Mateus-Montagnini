@@ -11,12 +11,12 @@ public class Pilha {
         this.lista = new ListaEncadeada();
     }
 
-    public void push() {
-
+    public void push(Elemento value) {
     }
 
-    public Elemento pop() {
-        return null;
+    public Integer pop() {
+        this.lista.removeValue(this.top());
+        return this.top();
     }
 
     public Integer top() {
