@@ -6,11 +6,12 @@ import java.util.List;
 public class Fila {
 
     private ListaEncadeada lista;
-    private Integer length = 0;
+    private Integer length;
     private Elemento first;
 
     public Fila() {
         this.lista = new ListaEncadeada();
+        this.length = 0;
     }
 
     public void enqueue(Elemento value) {

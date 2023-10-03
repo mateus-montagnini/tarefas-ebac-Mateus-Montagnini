@@ -5,10 +5,6 @@ public class ListaEncadeada {
     private Elemento last;
     private Integer length;
 
-    public Elemento getFirst() {
-        return first;
-    }
-
     public ListaEncadeada() {
         this.length = 0;
     }
@@ -126,17 +122,14 @@ public class ListaEncadeada {
         }
     }
 
-    public void setFirst(Elemento first) {
-        this.first = first;
+    public Elemento getFirst() {
+        return first;
     }
 
     public Elemento getLast() {
         return last;
     }
 
-    public void setLast(Elemento last) {
-        this.last = last;
-    }
 
     public Elemento get(Integer index) {
         Elemento current = first;
