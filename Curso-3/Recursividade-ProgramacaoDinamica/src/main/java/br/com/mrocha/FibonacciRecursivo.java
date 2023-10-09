@@ -11,7 +11,7 @@ public class FibonacciRecursivo {
     }
 
     public static void main(String[] args) {
-        int n = 2;
+        int n = 50;
 
         System.out.println("Elemento " + n + ": " + elementAt(n));
     }

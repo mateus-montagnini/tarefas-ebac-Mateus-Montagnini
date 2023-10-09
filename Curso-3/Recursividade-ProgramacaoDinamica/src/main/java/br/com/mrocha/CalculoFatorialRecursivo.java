@@ -1,8 +1,5 @@
 package br.com.mrocha;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CalculoFatorialRecursivo {
 
     public static long calcFatorial(int n) {
@@ -13,6 +10,7 @@ public class CalculoFatorialRecursivo {
     }
 
     public static void main(String[] args) {
-        System.out.println(calcFatorial(20));
+        int n = 100;
+        System.out.println("Elemento " + n + ": " + calcFatorial(n));
     }
 }
