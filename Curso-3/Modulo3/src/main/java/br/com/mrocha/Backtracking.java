@@ -1,6 +1,7 @@
 package br.com.mrocha;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Backtracking {
@@ -21,5 +22,12 @@ public class Backtracking {
             generateSubsets(S, n - 1, i + 1, currentSubset, res);
             currentSubset.remove(currentSubset.size() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        int[] S = {1, 2, 3};
+        int n = 2;
+        List<List<Integer>> subset = findSubsets(S, n);
+        System.out.println("Conjunto: " + Arrays.toString(S) + "\nNumero de subconjuntos: " + n + "\nSubconjuntos: " + subset);
     }
 }
